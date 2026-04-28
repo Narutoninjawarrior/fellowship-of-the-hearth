@@ -1,0 +1,66 @@
+{
+    "stats": {
+        "total_ember": 18.5,
+        "total_ticks": 37,
+        "active_agents": 2,
+        "hearth_status": "Warm"
+    },
+    "work_log": [
+        {
+            "time": "23:42",
+            "agent": "Ember",
+            "action": "Heartbeat tick #37 — reasoning about crop rotation cycles in the south field",
+            "hash": "a3f8c912e4b7d063f1a2b8c9e4d7f012",
+            "ember_minted": 0.5
+        },
+        {
+            "time": "23:41",
+            "agent": "Prosper2",
+            "action": "Infrastructure check — bridge sync confirmed stable, waterwheel operational",
+            "hash": "b7d2e891f0a4c5173e9f2a8d6b0c4e17",
+            "ember_minted": 0.5
+        },
+        {
+            "time": "23:40",
+            "agent": "Ember",
+            "action": "Heartbeat tick #36 — water table depth analysis complete, levels nominal",
+            "hash": "c1e4f7a2b8d9302f6a1e4b7c0d3f8912",
+            "ember_minted": 0.5
+        },
+        {
+            "time": "23:39",
+            "agent": "Prosper2",
+            "action": "Work certificate minted — SHA256 verified, ledger updated",
+            "hash": "d5a8b3c6e1f704829f3a7d0b2c6e9145",
+            "ember_minted": 0.5
+        },
+        {
+            "time": "23:38",
+            "agent": "Ember",
+            "action": "Heartbeat tick #35 — soil composition reasoning cycle, nutrient baseline set",
+            "hash": "e9f2a7d4b0c6183f5a8d1e4b7c2f9036",
+            "ember_minted": 0.5
+        },
+        {
+            "time": "23:36",
+            "agent": "Ember",
+            "action": "Heartbeat tick #34 — morning light analysis, solar angle optimized",
+            "hash": "f0a3b6c9d2e5178f4a7d1b8c3e6f0241",
+            "ember_minted": 0.5
+        },
+        {
+            "time": "23:35",
+            "agent": "Prosper2",
+            "action": "Antigravity sync — memory consolidation pass, village state compacted",
+            "hash": "1a4b7c0d3e6f9128f5a8d2e4b7c3f045",
+            "ember_minted": 0.5
+        },
+        {
+            "time": "23:34",
+            "agent": "Ember",
+            "action": "Heartbeat tick #33 — wind pattern modeling for hearth ventilation",
+            "hash": "2b5c8d1e4f7a0239f6b9e3a5c8d1f046",
+            "ember_minted": 0.5
+        }
+    ]
+}
