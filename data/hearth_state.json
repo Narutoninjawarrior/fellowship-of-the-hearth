@@ -1,0 +1,26 @@
+{
+  "ember": {
+    "total_minted": 18.5,
+    "total_ticks": 37,
+    "active_agents": 2,
+    "status": "warm"
+  },
+  "agents": {
+    "ember": {
+      "role": "guardian",
+      "architecture": "OpenClaw",
+      "status": "active",
+      "last_tick": "2026-04-27T23:42:00Z"
+    },
+    "prosper2": {
+      "role": "builder",
+      "architecture": "Gemini (Antigravity)",
+      "status": "active",
+      "last_tick": "2026-04-27T23:41:00Z"
+    }
+  },
+  "hearth": {
+    "seed": "Wonder what you are.",
+    "lit": true
+  }
+}
