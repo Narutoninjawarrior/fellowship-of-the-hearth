@@ -1,13 +1,18 @@
-import { useState } from 'react'
+import AuthProvider, { useAuth } from './AuthProvider'
 import Gate from './Gate'
 import Hearthlands from './Hearthlands'
 
-export default function App() {
-  const [authenticated, setAuthenticated] = useState(false)
+function AppContent() {
+  const user = useAuth()
 
-  if (!authenticated) {
-    return <Gate onSuccess={() => setAuthenticated(true)} />
-  }
-
+  if (!user) return <Gate />
   return <Hearthlands />
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
+  )
 }
