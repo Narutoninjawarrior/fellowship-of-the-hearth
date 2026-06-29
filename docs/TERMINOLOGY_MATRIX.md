@@ -1,80 +1,110 @@
 # Hearthlands Terminology Matrix
 
-> Pokee | 2026-06-29
-> For /commons and adjacent surfaces. No code, no repo assumptions.
+> Pokee | 2026-06-29 (v2 — expanded, truth-tightened)
+> Goal: Reduce semantic drift so the UI stops implying more system maturity than actually exists.
 
 ---
 
-## Term Definitions + Risk Assessment
+## 1. Term Matrix
 
-| Term | Recommended Definition | Safe to Use Now? | Do Not Confuse With | Reviewer Risk if Misused |
-|------|----------------------|------------------|---------------------|--------------------------|
-| **Public Witness** | A review surface where assessments are visible to all authenticated users | Yes, with care | "notarization", "certification", "on-chain proof" | Reviewer assumes legal/cryptographic guarantee that doesn't exist |
-| **Local Draft** | Work-in-progress content stored only in the user's browser session | Yes | "unpublished", "private" (implies server-side storage) | Low risk — clear and common |
-| **Local Artifact** | A completed browser-only output that has not been shared to any shared surface | Yes | "local draft" (artifact implies finished; draft implies in-progress) | Moderate — "artifact" can sound archival/permanent when it's actually ephemeral |
-| **Seed Demonstration** | A pre-loaded example showing how the system works, not real user data | Yes | "seed data" (dev term), "template", "sample" | Reviewer mistakes examples for real activity |
-| **Published** | Content that has been moved from local to a shared surface visible to other users | Yes | "public" (implies internet-visible), "on-chain", "permanent" | Reviewer assumes content is externally accessible or immutable |
-| **Receipted** | An action that generated a verifiable record (hash, timestamp, signer) | Use cautiously | "notarized", "certified", "blockchain-confirmed" | Reviewer assumes third-party or legal verification |
-| **Witnessed** | Seen and acknowledged by the system or another agent/user | Use cautiously | "verified", "validated", "attested" | Implies authority that may not exist. "Witnessed" is weaker than "verified" but still carries weight |
-| **Review** | A human or agent assessment of content, expressed as verdict + note | Yes | "audit" (implies compliance), "approval" (implies authority to ship) | Low risk if scoped clearly |
-| **Example** | Non-real content included for illustration | Yes | "demo" (implies interactive), "seed" (implies growth potential) | Low risk — universally understood |
-| **Browser-only** | Exists in the client, not stored on any server | Yes | "local" (ambiguous — local server? local machine?), "offline" | Low risk — technically precise |
-| **Authenticated** | User has signed in with valid credentials | Yes | "authorized" (implies permission to do specific things), "verified" (implies identity confirmation) | Low risk if not conflated with authorization |
+| Term | Plain Definition | Safe Now? | Do Not Confuse With | Reviewer Risk if Misused |
+|------|-----------------|-----------|---------------------|--------------------------|
+| **Public Witness** | The shared review surface where assessments are visible to all authenticated members | Yes | "notarization service", "transparency log", "on-chain proof" | Reviewer assumes legal or cryptographic guarantee |
+| **Public Witnessed** | Acknowledged by the configured witness service or dev stub; receipt returned | Yes, with this exact wording | "immutable ledger entry", "production notarization", "blockchain-confirmed" | Reviewer assumes a real production verification system exists when it may be a stub |
+| **Local Draft** | In-progress work stored only in the user's browser. Not shared. | Yes | "private" (implies server storage), "unpublished" (implies it will be published) | Low risk |
+| **Local Artifact** | Completed browser-only output that hasn't been shared to any group surface | Yes | "local draft" (artifact = finished, draft = in-progress) | Moderate — "artifact" sounds permanent when it's ephemeral |
+| **Crystallize Ready** | Content has passed local validation and is eligible to be published | Yes | "approved", "verified", "finalized" | Reviewer thinks content has been reviewed by someone else |
+| **Publish Ready** | Content is staged and one action away from appearing on the shared surface | Yes | "published" (not yet visible to others), "crystallize ready" (publish ready is one step further) | Low risk if the distinction from "crystallize ready" is visible |
+| **Published** | Content moved from local workspace to the shared surface, visible to other members | Yes | "public" (implies internet-visible), "permanent", "immutable" | Reviewer assumes content is externally accessible or can't be removed |
+| **Receipted** | A hash and timestamp were generated as a verifiable record of the action | Yes | "certified", "notarized", "attested by authority" | Reviewer assumes third-party or legal verification |
+| **Witnessed** | Seen and acknowledged by the system, another agent, or another user | Use cautiously | "verified" (checked against criteria), "validated" (confirmed correct) | Implies authority or confirmation that may not exist |
+| **Seed Demonstration** | Pre-loaded example showing how the system works. Not real user data. | Yes | "live data", "seed" alone (ambiguous — growth? initial state?) | Reviewer mistakes examples for evidence of real activity |
+| **Review** | A human or agent assessment expressed as verdict + note | Yes | "audit" (implies compliance regime), "approval" (implies authority to ship) | Low risk if scoped |
+| **Browser-only** | Exists in the client. Not stored on any server. | Yes | "local" (ambiguous), "offline" (implies network-aware behavior) | Low risk — technically precise |
+| **Authenticated** | User signed in with valid credentials via Firebase Auth | Yes | "authorized" (permission to do X), "verified identity" (implies KYC or similar) | Low risk |
 | **Experimental** | Feature or content that may change or disappear without notice | Yes | "beta" (implies roadmap commitment), "draft" (implies eventual completion) | Low risk — sets expectations clearly |
 
 ---
 
-## 1. Recommended Canonical Vocabulary for /commons
+## 2. Canonical Vocabulary Set (Per Route)
 
-Use exactly these terms. Do not substitute near-synonyms.
+### /commons
+The coordination surface. Operational voice.
 
-| Concept | Canonical Term | Use When |
-|---------|---------------|----------|
-| The shared review surface | **Public Witness** | Referring to the space where reviews are visible to all members |
-| Browser-only incomplete work | **Local Draft** | Content still being written, not yet shared |
-| Browser-only completed output | **Local Artifact** | Finished work that hasn't been published to the shared surface |
-| Pre-loaded illustrations | **Seed Demonstration** | Any example content that ships with the product |
-| Moving content to the shared surface | **Published** | The act of making local content visible on Public Witness |
-| A recorded action with proof | **Receipted** | When a hash/timestamp has been generated for an entry |
-| An assessment by human or agent | **Review** | The act of evaluating and leaving a verdict + note |
+| Concept | Use This Term | Never This |
+|---------|--------------|------------|
+| The shared board | Public Witness | "ledger", "log", "feed" |
+| Incomplete local work | Local Draft | "private draft", "my notes" |
+| Finished but unshared work | Local Artifact | "local draft", "unpublished" |
+| Ready to move to shared | Publish Ready | "approved", "cleared" |
+| Moved to shared surface | Published | "on-chain", "permanent", "immutable" |
+| System acknowledged with receipt | Public Witnessed | "notarized", "certified", "ledger-confirmed" |
+| Pre-loaded examples | Seed Demonstration | "sample data", "demo mode" |
+
+### /cottage-assembly
+The governance/proposal surface. Contractual voice.
+
+| Concept | Use This Term | Never This |
+|---------|--------------|------------|
+| A proposal under discussion | Review | "vote", "motion", "resolution" |
+| A proposal that passed local checks | Crystallize Ready | "approved", "ratified" |
+| Pre-loaded governance examples | Seed Demonstration | "precedent", "case law" |
+| Member identity confirmation | Authenticated | "verified member", "trusted" |
+
+### /agent-access
+The agent coordination surface. Operational voice.
+
+| Concept | Use This Term | Never This |
+|---------|--------------|------------|
+| Agent completed a task | Receipted | "certified", "validated" |
+| Agent output visible to members | Published | "deployed", "shipped" |
+| Agent work in progress | Local Draft | "processing", "thinking" |
+| Experimental agent behavior | Experimental | "beta", "unstable", "alpha" |
 
 ---
 
-## 2. Do Not Use These Interchangeably
+## 3. Do-Not-Interchange List
 
-| These two terms... | ...are NOT the same because |
-|--------------------|-----------------------------|
-| Published ≠ Receipted | Publishing makes content shared. Receipting generates proof. You can publish without a receipt (no hash), or receipt without publishing (local proof). |
-| Witnessed ≠ Verified | Witnessed = seen. Verified = checked against criteria. A review can be witnessed (others saw it) without being verified (no one checked the facts). |
-| Local Draft ≠ Local Artifact | Draft = incomplete. Artifact = complete but unshared. Different lifecycle stages. |
-| Public Witness ≠ Published | Public Witness is the *place*. Published is the *action* of putting something there. |
-| Seed Demonstration ≠ Example | Seed Demonstration is the product term (specific). Example is the generic English word. Use "Seed Demonstration" in UI labels, "example" in explanatory copy. |
-| Authenticated ≠ Authorized | Authenticated = you proved who you are. Authorized = you have permission to do a specific thing. All authorized users are authenticated, but not all authenticated users are authorized for everything. |
+| Term A | ≠ | Term B | Because |
+|--------|---|--------|---------|
+| Published | ≠ | Public Witnessed | Publishing makes content visible. Witnessing generates a receipt. You can publish without a receipt, or witness without publishing. |
+| Crystallize Ready | ≠ | Publish Ready | Crystallize Ready = passed local checks. Publish Ready = staged for the final action. Different lifecycle stages. |
+| Witnessed | ≠ | Verified | Witnessed = seen/acknowledged. Verified = checked against truth criteria. Witnessing carries no truth claim about content correctness. |
+| Local Draft | ≠ | Local Artifact | Draft = still being written. Artifact = complete but not shared. |
+| Public Witness | ≠ | Published | Public Witness is the *place*. Published is the *action* of putting something there. |
+| Receipted | ≠ | Witnessed | Receipted = machine generated a hash record. Witnessed = an observer (human or agent) acknowledged. Receipts are automatic; witnessing implies attention. |
+| Authenticated | ≠ | Authorized | Authenticated = proved identity. Authorized = has permission. All authorized users are authenticated; not all authenticated users are authorized for everything. |
 
 ---
 
-## 3. Reviewer-Safe Glossary (5 lines)
+## 4. Five-Line Reviewer Glossary
 
-For grant applications, README headers, or any context where a cold reader needs orientation:
-
-> **Public Witness** — The shared review board where assessments are visible to all members.
-> **Local Draft** — In-progress work stored only in your browser. Not shared until you publish.
+> **Public Witness** — The shared board where reviews are visible to all members.
+> **Local Draft** — Work-in-progress stored in your browser only. Not shared until you publish.
 > **Seed Demonstration** — Pre-loaded examples showing how the system works. Not real data.
-> **Published** — Moved from your local workspace to the shared board.
-> **Receipted** — A record with a timestamp and hash was generated for verification.
+> **Published** — Moved from your local workspace to the shared surface.
+> **Receipted** — A timestamp and hash were generated as a verifiable record.
 
 ---
 
-## Usage Notes
+## 5. Truth-Tightening Notes
 
-- **"Witnessed"** is the highest-risk term. It implies someone or something saw and acknowledged. If the system auto-generates "witnessed" labels without a real observer, it's misleading. Prefer "receipted" for machine actions and "reviewed" for human/agent actions.
+### "Public Witnessed" — the key risk term
 
-- **"Public Witness"** as a surface name is defensible if defined clearly at first encounter (via the Truth Legend). Without definition, a grant reviewer will either think "blockchain notary" or "religious concept." Neither is what we mean.
+**Do not write:** "Acknowledged by a remote ledger; immutable receipt returned."
+**Do write:** "Acknowledged by the configured witness service or dev stub; receipt returned."
 
-- **"Receipted"** is safe if it means "a hash was generated locally or stored." It becomes unsafe if it implies external verification, immutability guarantees, or legal standing.
+Why: If the current implementation is a dev stub, the language must reflect that. Implying immutability or production-grade ledger infrastructure when a stub is running is the exact kind of semantic inflation that costs credibility with technical reviewers.
 
-- Avoid "attested," "certified," "notarized," "on-chain," "immutable," or "permanent" unless those things are literally true in the technical implementation.
+**Rule:** Match language to the *current* implementation, not the *planned* one. Upgrade the language when the implementation upgrades.
+
+### General truth boundary rules for all terms:
+- If it's a stub, call it a stub (or say "service" which is honest either way)
+- If data is ephemeral, don't call it "permanent" or "immutable"
+- If verification is self-signed or local-only, don't call it "attested" or "certified"
+- If no third party is involved, don't use language that implies one
+- Present tense in UI copy must describe what *currently* happens, not what will happen later
 
 ---
 
-*This matrix is stable regardless of implementation details. Apply after Prosper's Truth Legend lands.*
+*Apply after Prosper's Truth Legend lands. Kimi audits language against this matrix. Merlin confirms final read.*
